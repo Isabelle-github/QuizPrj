@@ -1,4 +1,5 @@
 const content = document.getElementById("content");
+// content.appendChild(document.createElement(h1).appendChild(document.createTextNode('QUIZ')));
 let data = [
     {
         url: "https://cdn.playbuzz.com/cdn//f063e8fe-ad57-485e-8211-ed2ee0d9a205/4a864049-816a-479e-8736-51740e8b724b.jpg",
@@ -63,18 +64,47 @@ let data = [
 ]
 
 //document.getElementById("content").innerHTML = `${data}`;
+let idRadio = 0;
 
-data.forEach(element => {
+data.forEach(obj => {
+    // Quiz image
     let myImg = document.createElement('img');
-    myImg.src = `${element.url}`;
+    myImg.src = `${obj.url}`;
     myImg.className = `image`;
     content.appendChild(myImg);
+    // Quiz question
     let myP = document.createElement('p');
-    let myPText = document.createTextNode(`${element.question}`);
+    let myPText = document.createTextNode(`${obj.question}`);
     myP.appendChild(myPText)
     content.appendChild(myP);
     myP.className = `pStyle`;
+    // Quiz check buttons
+    let myForm = document.createElement('form');
+    // let idRadio = 0;
+    obj.choice.forEach(el => {
+        console.log(idRadio);
+        idRadio = idRadio + 1;
+        myForm.innerHTML += `<div class="radio-toolbar">
+        <input type="radio" id=${idRadio} name="responses">
+        <label for=${idRadio}>${el}</label>
+    </div>`;
+    })
+    content.appendChild(myForm);
 
+    // obj.choice.forEach(el => {
+    //     idRadio++;
+    //     let myInput = document.createElement('input');
+    //     let myLabel = document.createTextNode('label');
+    //     myLabel.for = `${idRadio}`;
+    //     myLabelText = document.createTextNode(`${el}`);
+    //     //myLabel.appendChild(myLabelText);
+    //     myInput.className = 'radios';
+    //     myInput.type = 'radio';
+    //     myInput.name = 'responses';
+    //     content.appendChild(myInput);
+    //     content.appendChild(myLabel);
+    //     console.log(el)
+    // })
     // content.innerHTML +=
     //     ` ${element.url} <br>, ${element.question} <br> ,${element.choice} <br> ,${element.answer}<br>`;
 })

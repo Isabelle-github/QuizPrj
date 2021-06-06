@@ -7,4 +7,32 @@
   font-size: 2em;
   text-align: center;
 }
+
+.radio-toolbar label {
+  display: inline-block;
+  background-color: grey;
+  padding: 0.5em 1em;
+  border-radius: 0.5em;
+  width: 8em;
+  margin: 1em 1em;
+}
+
+input[type="radio"] {
+  opacity: 0;
+  position: fixed;
+}
+
+.radio-toolbar input[type="radio"]:checked + label {
+  border: 2px solid black;
+}
+
+form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 auto;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
 /*# sourceMappingURL=style.css.map */
