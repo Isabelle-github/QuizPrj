@@ -81,33 +81,29 @@ data.forEach(obj => {
     // Quiz check buttons
     let myForm = document.createElement('form');
     // let idRadio = 0;
+    let nameRadios = `responses${idRadio}`;
+    let arrayRadios = [];
     obj.choice.forEach(el => {
         console.log(idRadio);
         idRadio = idRadio + 1;
         myForm.innerHTML += `<div class="radio-toolbar">
-        <input type="radio" id=${idRadio} name="responses">
+        <input type="radio" id=${idRadio} name=${nameRadios}>
         <label for=${idRadio}>${el}</label>
     </div>`;
+        content.appendChild(myForm);
+        arrayRadios.push(`${idRadio}`);
     })
-    content.appendChild(myForm);
-
-    // obj.choice.forEach(el => {
-    //     idRadio++;
-    //     let myInput = document.createElement('input');
-    //     let myLabel = document.createTextNode('label');
-    //     myLabel.for = `${idRadio}`;
-    //     myLabelText = document.createTextNode(`${el}`);
-    //     //myLabel.appendChild(myLabelText);
-    //     myInput.className = 'radios';
-    //     myInput.type = 'radio';
-    //     myInput.name = 'responses';
-    //     content.appendChild(myInput);
-    //     content.appendChild(myLabel);
-    //     console.log(el)
-    // })
+    console.log(arrayRadios);
+    arrayRadios.forEach(element => {
+        console.log(document.getElementById(element))
+        if (document.getElementById(element).checked) {
+            console.log(element + 'checked');
+        }
+    });
     // content.innerHTML +=
     //     ` ${element.url} <br>, ${element.question} <br> ,${element.choice} <br> ,${element.answer}<br>`;
 })
+
 
 
 // myDiv.style.backgroundRepeat = "no-repeat";
