@@ -72,124 +72,51 @@ data.forEach(obj => {
     myImg.src = `${obj.url}`;
     myImg.className = `image`;
     content.appendChild(myImg);
+
     // Quiz question
     let myP = document.createElement('p');
     let myPText = document.createTextNode(`${obj.question}`);
     myP.appendChild(myPText);
     content.appendChild(myP);
     myP.className = `pStyle`;
+
     // Quiz radio buttons
     let myArticle = document.createElement('article');
     myArticle.style.display = "flex";
     myArticle.style.justifyContent = "center";
-    // let idRadio = 0;
+
+    // same names for the radios of an object
     let nameRadios = `responses${idRadio}`;
-    let arrayRadios = [];
+    let arrayRadioIDs = [];
+
+    // create the radio buttons for each choice
     obj.choice.forEach(el => {
-        console.log(idRadio);
+        // console.log(idRadio);
         idRadio = idRadio + 1;
         myArticle.innerHTML += `<div class="radio-toolbar">
         <input type="radio" id=${idRadio} name=${nameRadios}>
         <label for=${idRadio}>${el}</label>
-    </div>`;
+        </div>`;
         content.appendChild(myArticle);
-        arrayRadios.push(`${idRadio}`);
+        arrayRadioIDs.push(`${idRadio}`);
     })
-    console.log(arrayRadios);
-    arrayRadios.forEach(element => {
+
+    // console.log(arrayRadioIDs);
+    // check the answers and validate if true or false by coloring
+    arrayRadioIDs.forEach(element => {
         let test = document.getElementById(element);
-        console.log(test);
+        // console.log(test);
         test.addEventListener('change', (e) => {
             console.log(e)
-            if (obj.answer == test.nextElementSibling.innerHTML) {
-                console.log('yaaay')
+            if (obj.answer.toString() == test.nextElementSibling.innerHTML) {
+                console.log('yaaay');
+                test.nextElementSibling.style.backgroundColor = "green";
+            } else {
+                console.log('noooo');
+                test.nextElementSibling.style.backgroundColor = "red";
             }
         })
-        // if (test.checked) {
-        //     console.log(element + 'checked');
-        // }
     });
 
 })
-// $('input:radio').on('change', function (e) {
-//     var name = e.currentTarget.name,
-//         value = e.currentTarget.value;
 
-//     $('.name').text(name);
-//     $('.value').text(value);
-// });
-
-// document.getElementById("form1").addEventListener('submit', functSubmit);
-
-// function functSubmit(event) {
-//   var msg = document.getElementById("input1").value;
-//   alert(msg);
-// }
-
-
-
-// myDiv.style.backgroundRepeat = "no-repeat";
-// myDiv.style.backgroundPosition = "center";
-
-
-
-//  // document.querySelector('body').innerHTML += "Hallo Welt <br>"
-//  let myP = document.createElement('p')
-//  let myPText = document.createTextNode('Hallo Welt')
-//  myP.appendChild(myPText)
-//  document.querySelector('body').appendChild(myP)
-
-//  let myArticle = document.createElement('article')
-
-//  myArticle.className = "some-class"
-//  for (let i = 1; i <= 10; i++) {
-//      let span = document.createElement('span')
-//      let spanText = document.createTextNode(i)
-//      span.appendChild(spanText)
-//      myArticle.appendChild(span)
-//  }
-//  document.querySelector('body').appendChild(myArticle)
-// })
-
-// HTML wird gerendert
-// CSS
-// JS ausgeführt 
-// => Eventlistener
-// schreibt das komplette HTML neu
-// Eventlistener sind weg!
-
-
-// // Neues Element erstellen
-// // erstellt ein neues HTML Element
-// let myDiv = document.createElement('div')
-
-// // erstellen einen neuen Text
-// let myDivText = document.createTextNode('Hallo Welt')
-// console.log(myDivText)
-
-// myDiv.id = "hero"
-// myDiv.className = "my-class"
-// myDiv.style.color = "red"
-
-// // Div und Text zusammenführen
-// myDiv.appendChild(myDivText)
-// console.log(myDiv)
-
-
-
-// document.querySelector('body').appendChild(myDiv)
-
-// let myFigure = document.createElement('figure')
-// let myImg = document.createElement('img')
-// myImg.src = "https://picsum.photos/200/300"
-
-
-// let myFigcaption = document.createElement('figcaption')
-// let myFigcaptionText = document.createTextNode('Das ist ein Bild')
-
-// myFigcaption.appendChild(myFigcaptionText)
-
-// myFigure.appendChild(myImg)
-// myFigure.appendChild(myFigcaption)
-// document.querySelector('body').appendChild(myFigure)
-// console.log(myFigure)
