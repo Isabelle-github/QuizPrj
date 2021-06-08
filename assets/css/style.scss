@@ -30,9 +30,3 @@ input[type="radio"] {
 .radio-toolbar input[type="radio"]:checked + label {
     border: 2px solid black;
 }
-//
-form{
-    display: flex;
-    margin: 0 auto;
-    justify-content: center;
-}

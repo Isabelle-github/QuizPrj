@@ -75,34 +75,56 @@ data.forEach(obj => {
     // Quiz question
     let myP = document.createElement('p');
     let myPText = document.createTextNode(`${obj.question}`);
-    myP.appendChild(myPText)
+    myP.appendChild(myPText);
     content.appendChild(myP);
     myP.className = `pStyle`;
-    // Quiz check buttons
-    let myForm = document.createElement('form');
+    // Quiz radio buttons
+    let myArticle = document.createElement('article');
+    myArticle.style.display = "flex";
+    myArticle.style.justifyContent = "center";
     // let idRadio = 0;
     let nameRadios = `responses${idRadio}`;
     let arrayRadios = [];
     obj.choice.forEach(el => {
         console.log(idRadio);
         idRadio = idRadio + 1;
-        myForm.innerHTML += `<div class="radio-toolbar">
+        myArticle.innerHTML += `<div class="radio-toolbar">
         <input type="radio" id=${idRadio} name=${nameRadios}>
         <label for=${idRadio}>${el}</label>
     </div>`;
-        content.appendChild(myForm);
+        content.appendChild(myArticle);
         arrayRadios.push(`${idRadio}`);
     })
     console.log(arrayRadios);
     arrayRadios.forEach(element => {
-        console.log(document.getElementById(element))
-        if (document.getElementById(element).checked) {
-            console.log(element + 'checked');
-        }
+        let test = document.getElementById(element);
+        console.log(test);
+        test.addEventListener('change', (e) => {
+            console.log(e)
+            if (obj.answer == test.nextElementSibling.innerHTML) {
+                console.log('yaaay')
+            }
+        })
+        // if (test.checked) {
+        //     console.log(element + 'checked');
+        // }
     });
-    // content.innerHTML +=
-    //     ` ${element.url} <br>, ${element.question} <br> ,${element.choice} <br> ,${element.answer}<br>`;
+
 })
+// $('input:radio').on('change', function (e) {
+//     var name = e.currentTarget.name,
+//         value = e.currentTarget.value;
+
+//     $('.name').text(name);
+//     $('.value').text(value);
+// });
+
+// document.getElementById("form1").addEventListener('submit', functSubmit);
+
+// function functSubmit(event) {
+//   var msg = document.getElementById("input1").value;
+//   alert(msg);
+// }
 
 
 
