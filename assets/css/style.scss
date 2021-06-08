@@ -1,6 +1,10 @@
-// div{
-//     background: url('https://cdn.playbuzz.com/cdn//f063e8fe-ad57-485e-8211-ed2ee0d9a205/1226f177-dc1a-4142-8875-bdaa177717d7.jpg') no-repeat  center;
-// }
+body{
+    margin:0;
+}
+
+section{
+    background-color: #EEEEEE;
+}
 
 .image{
     display: block;
@@ -19,7 +23,9 @@
   
     border-radius: 0.5em;
     width: 8em;
+    height: 1.5em;
     margin: 1em 1em;
+    text-align: center;
 }
 // hide browser default radio button view
 input[type="radio"] {
@@ -29,4 +35,9 @@ input[type="radio"] {
 //when button checked
 .radio-toolbar input[type="radio"]:checked + label {
     border: 2px solid black;
+}
+.hStyle{
+    text-align: center;
+    margin-top: 0;
+    padding-top: 2em;
 }

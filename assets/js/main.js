@@ -1,4 +1,11 @@
 const content = document.getElementById("content");
+let myH = document.createElement('h1');
+const myHText = document.createTextNode(`QUIZ`);
+myH.appendChild(myHText);
+content.appendChild(myH);
+myH.className = `hStyle`;
+
+myH.className = `hStyle`;
 // content.appendChild(document.createElement(h1).appendChild(document.createTextNode('QUIZ')));
 let data = [
     {
@@ -119,4 +126,3 @@ data.forEach(obj => {
     });
 
 })
-
